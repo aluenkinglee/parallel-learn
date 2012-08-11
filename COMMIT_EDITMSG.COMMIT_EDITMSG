@@ -1,0 +1,19 @@
+
+
+# --------------
+# Please enter the commit message for your changes. Everything below
+# this paragraph is ignored, and an empty message aborts the commit.
+# Just close the window to accept your message.
+diff --git a/main.c b/main.c
+index 2f1e51a..ac67318 100644
+--- a/main.c
++++ b/main.c
+@@ -280,4 +280,6 @@ void opemMP_schedule_dynamic()
+ //2.size of the blocks shrink;no smaller than chunk
+ //这个方式是动态方式的改进。在这个方式里，分块的x是不固定的，一开
+ //始块的大小(x)比较大，随着剩余工作量的减小，块的大小也随之变小。 
+-//...no more test
+\ No newline at end of file
++//...no more test
++
++
