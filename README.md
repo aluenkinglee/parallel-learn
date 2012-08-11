@@ -2,4 +2,9 @@
 this article simply shows some basic use of OPENMP,just for increasing the perceptual understanding,if you  want to understand the parallel computing deeply,please read related books and papers.
 
 使用：
-git clone 
+git clone https://github.com/aluenkinglee/parallel-learn.git
+gcc -fopenmp -std=c99 -O2 parallel.c -o main.out
+
+usage:
+git clone https://github.com/aluenkinglee/parallel-learn.git
+gcc -fopenmp -std=c99 -O2 parallel.c -o main.out
