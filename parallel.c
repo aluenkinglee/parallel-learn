@@ -25,6 +25,10 @@ void compute_pi_in_serial();
 void compute_pi_in_parallel();
 void opemMP_schedule_static();
 void opemMP_schedule_dynamic();
+void add();
+void multiply();
+void openMP_parallel_section();
+
 
 int a[LEN]={1,3,5,7,9};
 int b[LEN]={2,4,6,8,10};
@@ -40,7 +44,8 @@ int main(int argc,char* argv[])
     //compute_pi_in_serial();
     //compute_pi_in_parallel();
     //opemMP_schedule_static();
-    opemMP_schedule_dynamic();
+    //opemMP_schedule_dynamic();
+    openMP_parallel_section();
     return 1;
 }
 
@@ -281,5 +286,48 @@ void opemMP_schedule_dynamic()
 //这个方式是动态方式的改进。在这个方式里，分块的x是不固定的，一开
 //始块的大小(x)比较大，随着剩余工作量的减小，块的大小也随之变小。 
 //...no more test
+    
 
-
+/*
+openMP construct
+独立的代码区可以并行执行
+*/
+void add()
+{
+    int sum =0;
+    for (int i = 0; i < 100; ++i)
+    {
+        sum += i;
+    }
+    printf("sum=%d\n",sum );
+}
+void multiply()
+{
+    int multiply = 1;
+    for (int i = 1; i < 6; ++i)
+    {
+        /* code */
+        multiply *= i;
+    }
+    printf("multiply=%d\n",multiply );
+}
+void openMP_parallel_section()
+{
+    int multiply = 1;
+    #pragma omp sections
+    {
+        add();
+    }
+    #pragma omp sections
+    {
+        //multiply();
+        //int multiply = 1;
+        //不能在这里面定义变量
+        for (int i = 1; i < 6; ++i)
+        {
+            /* code */
+            multiply *= i;
+        }
+        printf("multiply=%d\n",multiply );
+    }
+}
